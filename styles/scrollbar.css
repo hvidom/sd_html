@@ -1,0 +1,50 @@
+/* 1. Define the variables used in the scrollbar (or use your existing ones) */
+:root {
+    --sb-size: 10px;
+    --color-transparent: transparent;
+    --color-primary: #ec2784;    /* SALO Pink */
+    --color-neon-cyan: #3ccfda;   /* AI Cyan */
+}
+
+/* 2. Custom Scrollbar for Chrome, Safari, and Edge */
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--color-transparent);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+    border: 2px solid var(--color-neon-cyan);
+}
+
+/* 3. Firefox Support (Simple version) */
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary) var(--color-transparent);
+    }
+}
+
+/* 4. Text Selection Color (The highlight when you drag your mouse) */
+::selection {
+    background-color: rgba(60, 207, 218, 0.3); /* Soft Cyan */
+    color: #ffffff;
+}
+
+/* 5. Hide horizontal scrollbars on internal elements if they aren't needed */
+*::-webkit-scrollbar {
+    height: 4px;
+}
+
+/* 6. The Autofill Hack */
+/* Prevents Chrome from forcing a yellow/white background on saved passwords */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+    -webkit-text-fill-color: var(--text-color, white) !important;
+}

@@ -209,6 +209,7 @@ nav a:hover {
     background: rgba(236, 39, 132, 0.1);
     width: 50px; height: 50px;
     border-radius: 12px;
+    border-color: #ec2784;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 15px;
 }
@@ -275,6 +276,7 @@ input, select, textarea {
     border-top: 1px solid var(--accent-border);
     padding: 60px 20px 30px;
     margin-top: 100px;
+    border-color: #ec2784;
 }
 .footer-grid {
     max-width: 1100px; margin: 0 auto;
@@ -449,9 +451,28 @@ button:after {
 }
 
 
+.page {
+    /* Set a fallback solid color first for older browsers */
+    background-color: #1d1e22; 
+  
+    /* Layer 1: Top-Right Linear Glow */
+    background: linear-gradient(215deg, var(--heading-color), transparent 40%),
+                
+                /* Layer 2: Top-Left Big Radial Aura */
+                radial-gradient(var(--heading-color), transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
+                
+                /* Layer 3: Bottom Center Ground Glow */
+                radial-gradient(var(--heading-color), transparent 65%) no-repeat 50% calc(100% + 20rem) / 60rem 30rem;
+                
+    /* Ensure the background doesn't repeat if the page is very long */
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
 
-
-
+  section {
+    padding: auto;
+    margin: auto;
+  }
 
 .text-color {
     /* The Gradient */
