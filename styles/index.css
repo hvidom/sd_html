@@ -1,0 +1,479 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Inter:wght@400;600;800&display=swap');
+
+:root {
+    --bg-color: #1d1e22;
+    --heading-color: #ec2784;
+    --text-color: #ffffff;
+    --card-bg: #2a2b30;
+    --accent-border: #33353b;
+    --muted-text: #94a3b8;
+}
+
+/* Base Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: background-color 0.5s ease;
+    font-feature-settings: "rlig" 1, "calt" 1;
+
+}
+
+/* Typography */
+h1 {
+    font-family: 'Lilita One', cursive;
+    color: var(--heading-color);
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0;
+    line-height: 1;
+}
+
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    color: var(--heading-color);
+    scroll-margin-top: 5rem;
+    border-bottom: 1px solid var(--accent-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+}
+
+h3 { 
+    font-size: 1.5rem; 
+    font-weight: 600; 
+    color: var(--heading-color); 
+    margin-top: 1.5rem; 
+    text-align: left; 
+}
+h4 { 
+    font-size: 1.25rem; 
+    font-weight: 600; 
+    color: var(--heading-color); 
+    margin-top: 1rem; 
+    text-align: left;
+}
+
+p { 
+    margin-top: 1.5rem; 
+    line-height: 1.75; 
+    color: #cbd5e1; 
+    text-align: left; 
+}
+
+
+p.slogan { 
+    margin-top: 0; 
+    text-align: center; 
+    font-style: italic; 
+    opacity: 0.8; 
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+p.slogan strong {
+    color: var(--heading-color);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    margin-right: 8px;
+    font-size: 2rem;
+}
+
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav { 
+    display: flex; 
+    justify-content: center; 
+    gap: 25px;
+    align-items: center;
+}
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+}
+nav a:hover { 
+    color: var(--heading-color); 
+}
+
+
+.logo-icon {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin-right: 8px;
+    font-size: 2rem;
+}
+
+
+
+/* Hero */
+.hero {
+    padding: 80px 20px;
+    text-align: center;
+    background: radial-gradient(circle at center, #362d35 0%, #1d1e22 100%);
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.logo-box svg { width: 80px; height: 80px; fill: var(--heading-color); }
+
+/* Containers & Grids */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid var(--accent-border);
+    transition: transform 0.3s, border-color 0.3s;
+}
+.card:hover { transform: translateY(-5px); border-color: var(--heading-color); }
+
+.icon-box {
+    background: rgba(236, 39, 132, 0.1);
+    width: 50px; height: 50px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 15px;
+}
+.icon-box svg { width: 24px; height: 24px; stroke: var(--heading-color); fill: none; stroke-width: 2; }
+
+/* Sections */
+.about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.cta-box {
+    background: var(--heading-color);
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    margin: 80px 0;
+    color: white;
+}
+.cta-box h2 { color: white; border: none; font-size: 2.5rem; margin: 0; }
+.cta-btn {
+    display: inline-block;
+    background: var(--bg-color);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+/* Booking Form */
+.booking-card {
+    background: #16171a;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--accent-border);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+input, select, textarea {
+    width: 100%; padding: 12px; margin-top: 8px; margin-bottom: 15px;
+    background: #1d1e22; border: 1px solid var(--accent-border);
+    color: white; border-radius: 8px;
+}
+.submit-btn {
+    background: var(--heading-color);
+    width: 100%; padding: 15px; border: none; border-radius: 8px;
+    color: white; font-weight: 800; cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: transparent;
+    width: 100%; padding: 15px; border: none; border-radius: 8px;
+    font-weight: 800; 
+    cursor: pointer;
+}
+
+/* Footer */
+.site-footer {
+    background: #16171a;
+    border-top: 1px solid var(--accent-border);
+    padding: 60px 20px 30px;
+    margin-top: 100px;
+}
+.footer-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+}
+.footer-links h5 { 
+    color: var(--heading-color); 
+    margin-bottom: 20px; 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+}
+.footer-links ul { 
+    list-style: none; 
+}
+.footer-links a { 
+    color: var(--muted-text); 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+}
+.footer-links a:hover { 
+    color: var(--heading-color); 
+}
+
+.socials { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+.socials svg { 
+    width: 20px; 
+    height: 20px; 
+    fill: var(--muted-text); 
+}
+.socials a:hover svg { 
+    fill: var(--heading-color);
+ }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-split, .footer-grid, .form-row { grid-template-columns: 1fr; }
+    h1 { font-size: 2.5rem; }
+}
+button {
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+button:focus,   
+button:hover {
+    color: var(--heading-color);
+    font-family: 'Inter', sans-serif;
+    font: bold;
+}
+
+button:focus:after,
+button:hover:after {
+    width: 100%;
+    left: 0%;
+}
+
+button:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ec2784;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+}
+
+
+/* Card Grid Layout */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 60px 0;
+}
+
+/* Individual Card */
+.project-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    group: hover;
+}
+
+/* Image Container with Aspect Ratio 16:12 */
+.image-wrapper {
+    position: relative;
+    padding-top: 75%; /* 12/16 = 0.75 aspect ratio */
+    overflow: hidden;
+    background: var(--card-bg);
+    border-radius: 16px;
+}
+
+.image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 16px;
+}
+
+/* Hover Zoom Effect */
+.project-card:hover .image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Title Animation (Underline grow) */
+.project-title {
+    position: relative;
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 20px;
+    text-align: left; /* Aligned Left */
+}
+
+.project-title::before {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--heading-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-title::before {
+    transform: scaleX(1);
+}
+
+/* Tags Styles */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tag {
+    padding: 6px 12px;
+    background: #2a2b30;
+    border: 1px solid var(--accent-border);
+    color: var(--muted-text);
+    font-size: 0.8rem;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+.text-color {
+    /* The Gradient */
+    background: linear-gradient(to right, #2d60ec, #3ccfda, #2d60ec);
+    background-size: 200% auto; /* Necessary for the "movement" effect */
+    
+    /* Clipping to Text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* The Animation */
+    animation: animate8345 9s linear infinite;
+  }
+
+
+@keyframes animate8345 {
+    0%,
+    100% {
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      filter: hue-rotate(360deg);
+    }
+  }

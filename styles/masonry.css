@@ -1,0 +1,84 @@
+/* Masonry Container */
+.masonry-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 12-Column Grid System */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+/* Base Card Styling */
+.m-card {
+    position: relative;
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.m-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.m-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Overlay Text Styling */
+.m-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+}
+
+.m-text {
+    background: var(--card-bg, #2a2b30); /* Uses your SALO AI colors */
+    color: var(--text-color, #ffffff);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* Column Spanning Logic (Desktop) */
+.col-5-start-3 { grid-column: span 12; }
+.col-3 { grid-column: span 12; }
+.col-4 { grid-column: span 12; }
+
+@media (min-width: 640px) {
+    .self-end { align-self: end; }
+    
+    .col-5-start-3 { grid-column: 3 / span 5; } /* Starts at col 3, spans 5 */
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 6; } /* Half width on small tablets */
+}
+
+@media (min-width: 1024px) {
+    .col-4 { grid-column: span 4; } /* 1/3 width on desktop */
+}
+
+/* Aspect Ratios */
+.aspect-box {
+    aspect-ratio: 12 / 7;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    /* Large top cards look better taller on desktop */
+    .col-5-start-3 .aspect-box, .col-3 .aspect-box {
+        aspect-ratio: auto;
+        height: 300px;
+    }
+}
